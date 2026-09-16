@@ -3,6 +3,7 @@ package de.mohammed.my_app.repository;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import de.mohammed.my_app.model.ProductResponse;
 
@@ -25,14 +26,21 @@ public class ProductRepository {
 		if (tag == null) {
 			return products;
 		} else {
-			tag = tag.toLowerCase();
-			List<ProductResponse> filtered = new ArrayList<>();
-			for (ProductResponse p : products) {
-
-				if (lowercaseTags(p).contains(tag)) {
-					filtered.add(p);
-				}
-			}
+			String lowercaseTag = tag.toLowerCase();
+		
+			// filter products by tag
+			List<ProductResponse> filtered = products
+											 .stream()
+											 .filter(p -> lowercaseTags(p).contains(lowercaseTag))
+											 .collect(Collectors.toList());		 
+//			List<ProductResponse> filtered = new ArrayList<>();
+//			for (ProductResponse p : products) {
+//
+//				if (lowercaseTags(p).contains(tag)) {
+//					filtered.add(p);
+//				}
+//			}
+			
 			return filtered;
 		}
 	}
