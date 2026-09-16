@@ -17,7 +17,7 @@ public class ProductRepository {
 						Arrays.asList("Intel", "Processor")),
 
 				new ProductResponse("3", "NVIDIA GeForce GTX", "Grafik karte", 74900,
-						Arrays.asList("NVIDIA", "Graphik")));
+						Arrays.asList("NVIDIA2", "Graphik")));
 		
 		if (tag == null) {
 			return products;
