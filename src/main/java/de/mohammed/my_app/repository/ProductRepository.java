@@ -49,10 +49,33 @@ public class ProductRepository {
 	 * Methode um alles to lowercase 
 	 */
 	private List<String> lowercaseTags(ProductResponse p) {
-		List<String> lowercaseTags = new ArrayList<>();
-		for (String t : p.getTags()) {
-			lowercaseTags.add(t.toLowerCase());
-		}
-		return lowercaseTags;
+//		List<String> tags = p.getTags();
+		return p.getTags()
+				.stream()
+				.map(tag -> tag.toLowerCase())
+				.collect(Collectors.toList());
+		
+//		List<String> lowercaseTags = new ArrayList<>();
+//		for (String t : tags) {
+//			lowercaseTags.add(t.toLowerCase());
+//		}
+//		return lowercaseTags;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
