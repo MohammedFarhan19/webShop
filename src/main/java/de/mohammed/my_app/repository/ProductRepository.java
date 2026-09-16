@@ -29,10 +29,7 @@ public class ProductRepository {
 			String lowercaseTag = tag.toLowerCase();
 		
 			// filter products by tag
-			List<ProductResponse> filtered = products
-											 .stream()
-											 .filter(p -> lowercaseTags(p).contains(lowercaseTag))
-											 .collect(Collectors.toList());		 
+					 
 //			List<ProductResponse> filtered = new ArrayList<>();
 //			for (ProductResponse p : products) {
 //
@@ -41,7 +38,10 @@ public class ProductRepository {
 //				}
 //			}
 			
-			return filtered;
+			return products
+					.stream()
+					.filter(p -> lowercaseTags(p).contains(lowercaseTag))
+					.collect(Collectors.toList());
 		}
 	}
 
