@@ -1,0 +1,62 @@
+- Pfad
+- Query Parameter
+- Http Verb: GET. POST, PUT, DELETE (HEAD, OPTIONS, PATCH, TRACE)
+- Request Body (Formular)
+
+Swagger Petstore => REST tool um endpunkt zu dokumetieren bzw. um dukometation automatisch aus dem Code zu generiren
+
+/*
+GET (Produkte)=> liefert alle Produkte
+GET/{id} => liefert ein Produkt mit einer bestimmten ID
+POST => erzeugt ein neues Produkt
+PUT /{id} => updatet ein Produkt mit einer bestimmten ID
+DELETE /{id} => löscht ein Produkt mit einer bestimmten ID  
+*/
+
+REST Konzept: dreht sich dabei um Ressourcen(die Entities um die sich das Projekt dreht)
+- Produkte
+- Kunde
+- Bestellung
+
+Lade alle Prdoucte vom Server:
+GET /api/products
+
+Lade Produkte mit bestimmtem Tag
+GET /api/products/{tag}
+
+Besser:
+GET /api/products?tag={tag}&name={name}
+
+Erzeuge neues Produkt
+POST /api/products => neues Produkt anlegen            (createProduct)
+
+Lösche Produkt
+DELETE /api/products/{id}
+
+Lade Produkte mit bestimmter ID
+GET /api/products/{id}
+
+Ändere Preis eines Produkt
+Bsp:(ohne REST Konzept erstmal dann später ändern)
+POST /api/updatePrice
+
+besser REST Konzept
+PUT /api/products/{id}/price
+
+Update Produktbeschreibung
+PUT /api/products/{id}/description
+
+Füge Tags zu Produkt hinzu
+POST /api/addTags
+
+besser (REST)
+PUT api/products/{id}/tags 
+
+Bestelle Produkt --> genau so wie erzeuge neue Bestellung
+POST /api/orderProduct?=id{id}
+POST /api/product/{id}orderProduct (orderproduct ist eine Operation und kein Ressource)
+POST /api/orders
+
+Füge Produkt zu Bestellung hinzu
+PUT /api/orders/{id}/products (von der Bestellung)
+
